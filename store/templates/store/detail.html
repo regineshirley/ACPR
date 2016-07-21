@@ -1,0 +1,15 @@
+<body style="background-color:skyblue">
+<img src="{{ product.picture }}">
+
+<h2>Type: {{ product.type }}</h2>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<h2>Name: {{ product.name }}</h2>
+<h2>Description: {{ product.description }}</h2><br>
+
+<form action="{% url 'store:purchase' product.id%}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Add to Cart">
+</form>

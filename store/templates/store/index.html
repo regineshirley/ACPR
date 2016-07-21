@@ -1,0 +1,24 @@
+<body style="background-color:yellow">
+{% if all_products %}
+    <h1>Viking Gear:</h1><br>
+    <h2>Helmets</h2>
+    <ul>
+        {% for product in all_products %}
+        <li><a href="{% url 'store:detail' product.id %}">{{ product.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <h2>Armor</h2>
+    <ul>
+        {% for product in all_products %}
+        <li><a href="{% url 'store:detail' product.id %}">{{ product.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <h2>Footwear</h2>
+    <ul>
+        {% for product in all_products %}
+        <li><a href="{% url 'store:detail' product.id %}">{{ product.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>Product not found or product no longer available.</h3>
+{% endif %}
