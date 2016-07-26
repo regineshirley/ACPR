@@ -1,0 +1,21 @@
+{% extends 'armor/base.html' %}
+{% block title %}Armor{% endblock %}
+
+{% block body %}
+
+{% if all_armors %}
+    {% for armor in all_armors %}
+            <div class="floated_img">
+                <a href="/armor/{{ armor.id }}/">
+            <img style="float: left; margin: 0px 0px 15px 15px;" src="{{ armor.picture }}"
+                    class="img-rounded" width="300" height="300" />
+                    </a>
+           </div>
+    {% endfor %}
+{% else %}
+    <h3>No armor is available.</h3>
+{% endif %}
+
+{% endblock %}
+
+
