@@ -1,0 +1,20 @@
+{% extends 'helmets/base.html' %}
+{% block title %}Helmets{% endblock %}
+
+{% block body %}
+
+    {% if all_helmets %}
+       {% for helmet in all_helmets %}
+            <div class="floated_img">
+                <a href="/helmets/{{ helmet.id }}/">
+            <img style="float: left; margin: 0px 0px 15px 15px;" src="{{ helmet.picture }}"
+                    class="img-rounded" width="300" height="300" />
+                    </a>
+           </div>
+        {% endfor %}
+    {% else %}
+        <h3>No helmets are available.</h3>
+    {% endif %}
+
+
+{% endblock %}
