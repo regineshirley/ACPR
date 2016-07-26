@@ -1,0 +1,25 @@
+{% extends 'swords/base.html' %}
+{% block title %}Swords{% endblock %}
+
+{% block body %}
+    <!-- Loads the path to your static files -->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'swords/style.css' %}" />
+
+
+    {% if all_swords %}
+            {% for sword in all_swords %}
+                <div class="floated_img">
+                    <a href="/swords/{{ sword.id }}/">
+                        <img style="float: left; margin: 0px 0px 15px 15px;" src="{{ sword.picture }}"
+                    class="img-rounded" width="300" height="300" />
+                        </a>
+                </div>
+            {% endfor %}
+    {% else %}
+        <h3>No swords are available.</h3>
+    {% endif %}
+
+
+{% endblock %}
